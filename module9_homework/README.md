@@ -63,7 +63,7 @@ _JS_-объект:
         ]
     }
 
-### Задание 3. | [module9_homework_3](module9_homework_3.js)
+### Задание 3. | [module9_homework_3](module9_homework_3.html)
 Напишите код приложения, интерфейс которого представляет собой _input_ и кнопку.
 В _input_ можно ввести любое число. При клике на кнопку происходит следующее:
 
@@ -78,7 +78,7 @@ _JS_-объект:
 Получение данных из _input_:
 `const value = document.querySelector('input').value;`
 
-### Задание 4. | [module9_homework_4](module9_homework_4.js)
+### Задание 4. | [module9_homework_4](module9_homework_4.html)
 Напишите код приложения, интерфейс которого представляет собой 2 _input_ и кнопку _submit_. В _input_ можно ввести любое число.
 
 При клике на кнопку происходит следующее:
@@ -93,7 +93,7 @@ _JS_-объект:
 Получение данных из _input_:
 `const value = document.querySelector('input').value;`
 
-### Задание 5. | [module9_homework_5](module9_homework_5.js)
+### Задание 5. | [module9_homework_5](module9_homework_5.html)
 Написать код приложения, интерфейс которого состоит из двух _input_ и кнопки. В _input_ можно ввести любое число.
 
 + Заголовок первого _input_ — «номер страницы».

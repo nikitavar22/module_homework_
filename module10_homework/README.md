@@ -1,14 +1,14 @@
-### Задание 1. | [module9_homework_1](module9_homework_1.js)
+### Задание 1. | [module9_homework_1](module9_homework_1.html)
 
 Сверстайте кнопку, которая будет содержать в себе [icon_01](https://icons.getbootstrap.com/icons/arrow-down-left-circle/)
 (как в примере в последнем видео). При клике на кнопку иконка должна меняться 
 на [icon_02](https://icons.getbootstrap.com/icons/arrow-down-left-circle-fill/). Повторный клик меняет иконку обратно.
 
 
-### Задание 2. | [module10_homework_2](module10_homework_2.js)
+### Задание 2. | [module10_homework_2](module10_homework_2.html)
 Сверстайте кнопку, клик на которую будет выводить данные о размерах экрана с помощью [alert](https://developer.mozilla.org/ru/docs/Web/API/Window/alert).
 
-### Задание 3. | [module10_homework_3](module10_homework_3.js)
+### Задание 3. | [module10_homework_3](module10_homework_3.html)
 
 1. Реализовать чат на основе эхо-сервера _wss://echo-ws-service.herokuapp.com._
    Интерфейс состоит из `input`, куда вводится текст сообщения, и кнопки «Отправить».
