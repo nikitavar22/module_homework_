@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-image {
+            display: block;
+        }
+        .card, .btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <label>ширина картинки: <input type="text" name="value1" id="input-1" placeholder="число"></label>
+    <label>высота картинки: <input type="text" name="value2" id="input-2" placeholder="число"></label>
+</form>
+<button class="btn">Запрос</button>
+<div id="container"></div>
+
+<script>
+
+    const div = document.getElementById("container");
+    const btn = document.querySelector("button");
+    let cards = '';
+    cards = localStorage.getItem("cards");
+    if (cards){
+        div.innerHTML = cards;
+    };
+
+    const useRequest = (imageWidth, imageHeight, randomNumber) => {
+        return fetch(`https://source.unsplash.com/collection/928423/${imageWidth}x${imageHeight}/?sig=${randomNumber}`)
+            .then((response) => {
+                return response.url;
+            })
+            .then((url) => { return url; })
+            .catch(() => { console.log('error') });
+    };
+
+    async function displayResult(value1, value2){
+        const numImagesAvailable = 10;
+        let randomNumber = Math.floor(Math.random() * numImagesAvailable);
+        let apiData = '';
+        cards = '';
+        for(let i = 0; i < numImagesAvailable; i++){
+            apiData = await useRequest(value1, value2, randomNumber);
+            cards += `
+                        <div class="card">
+                            <img src="img/photo-1446406534006-065428663905.jpeg" height="720" width="1080" class="card-image"/>
+                        </div>
+                    `;
+        }
+        localStorage.removeItem('cards');
+        localStorage.setItem('cards', cards);
+        div.innerHTML = cards;
+    }
+
+    btn.addEventListener("click", () => {
+        const value1 = document.querySelector('#input-1').value;
+        const value2 = document.querySelector('#input-2').value;
+        let errorLog = '';
+        errorLog = ((typeof value1 == "number") || (value1 < 100 || value1 > 500)) ? 'Ширина картинки вне диапазона от 100 до 500<br>' : '';
+        errorLog += ((typeof value2 == "number") || (value2 < 100 || value1 > 500)) ? 'Высота картинки вне диапазона от 100 до 500' : '';
+        div.innerHTML = errorLog;
+
+        if (!errorLog){
+            displayResult(value1, value2);
+        };
+    });
+</script>
+
+</body>
+</html>

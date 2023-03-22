@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+<form>
+   <label>Первое число<input type="text" name="value1" id="input-1" placeholder="Первое число"></label>
+   <label>Второе число<input type="text" name="value2" id="input-2" placeholder="Второе число"></label>
+</form>
+<button>Action</button>
+<div id="container"></div>
+
+<script>
+
+   const div = document.getElementById("container");
+   const btn = document.querySelector("button");
+
+   const useRequest = (value1, value2) => {
+      return fetch(`https://loremflickr.com/json/g/${value1}/${value2}/all`)
+              .then((response) => {
+                 return response.json();
+              })
+              .then((json) => { return json; })
+              .catch(() => { console.log('error') });
+   };
+
+   btn.addEventListener("click", async () => {
+      const value1 = document.querySelector('#input-1').value;
+      const value2 = document.querySelector('#input-2').value;
+      if ((value1 < 100 || value1 > 500) || (value2 < 100 || value2 > 500)){
+         div.innerHTML = 'число вне диапазона от 100 до 500';
+      }else{
+         let apiData = await useRequest(value1, value2);
+         div.innerHTML = `<img src="img/800-200x300.jpg" height="300" width="200"">`;
+      }
+   });
+
+</script>
+
+</body>
+</html>
